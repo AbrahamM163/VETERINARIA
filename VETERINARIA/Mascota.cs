@@ -16,7 +16,7 @@ namespace VETERINARIA
 
         public override string ToString()
         {
-            return $"{Nombre} - {Tipo} - {Edad} años";
+            return $"{Nombre} - {Tipo} - {Edad} años"; //arreglo
         }
 
     }
