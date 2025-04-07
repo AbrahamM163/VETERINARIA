@@ -19,6 +19,8 @@ namespace VETERINARIA
             InitializeComponent();
         }
 
+        //Registro de mascotas
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (contador >= mascotas.Length)
