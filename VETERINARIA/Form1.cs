@@ -12,11 +12,13 @@ namespace VETERINARIA
 {
     public partial class Form1 : Form
     {
-        Mascota[] mascotas = new Mascota[10]; // Puedes ajustar el tamaño
-        int contador = 0;
-        public Form1()
+        public Mascota[] mascotas = new Mascota[10]; // Puedes ajustar el tamaño
+        public int contador = 0;
+        public Form1(Mascota[] mascotasCompartidas, int contadorInicial)
         {
             InitializeComponent();
+            this.mascotas = mascotasCompartidas;
+            this.contador = contadorInicial;
         }
 
         //Registro de mascotas
@@ -34,21 +36,30 @@ namespace VETERINARIA
             {
                 Nombre = textBox3.Text,
                 Tipo = textBox2.Text,
-                Edad = int.Parse(textBox1.Text)
+                Edad = int.Parse(textBox1.Text),
+                Peso = double.Parse(textBox4.Text)
+
             };
 
             mascotas[contador] = nueva;
             contador++;
 
-            listBox1.Items.Add(nueva.ToString());
+            dataGridView1.Rows.Add(nueva.Nombre, nueva.Tipo, nueva.Edad, nueva.Peso);
 
             // Limpiar campos
             textBox3.Clear();
             textBox2.Clear();
             textBox1.Clear();
+            textBox4.Clear();
             textBox3.Focus();
         }
-    
+
+        public int ObtenerContador() // Para devolver el contador actualizado al menú
+        {
+            return contador;
+        }
+
+
 
 
 
@@ -67,7 +78,26 @@ namespace VETERINARIA
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+  
+
+     
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

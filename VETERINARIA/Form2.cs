@@ -12,6 +12,10 @@ namespace VETERINARIA
 {
     public partial class Form2 : Form
     {
+
+        public Mascota[] mascotas = new Mascota[10];
+        public int contadorMascotas = 0;
+
         public Form2()
         {
             InitializeComponent();
@@ -19,10 +23,21 @@ namespace VETERINARIA
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 frmRegistrar = new Form1();
+            Form1 frmRegistrar = new Form1(mascotas, contadorMascotas);
+            frmRegistrar.FormClosed += (s, args) =>
+            {
+                // Cuando se cierra el formulario, actualiza el contador
+                contadorMascotas = frmRegistrar.ObtenerContador();
+            };
+            frmRegistrar.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form3 frmCalcularPeso = new Form3(mascotas, contadorMascotas);
 
             // Mostrar el formulario de registrar mascota
-            frmRegistrar.Show();
+            frmCalcularPeso.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -35,7 +50,12 @@ namespace VETERINARIA
 
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

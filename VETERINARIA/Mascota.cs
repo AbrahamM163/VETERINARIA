@@ -12,6 +12,8 @@ namespace VETERINARIA
         public string Tipo { get; set; }
         public int Edad { get; set; }
 
+        public double Peso { get; set; }
+
         public override string ToString()
         {
             return $"{Nombre} - {Tipo} - {Edad} años";
