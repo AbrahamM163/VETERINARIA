@@ -39,7 +39,7 @@ namespace VETERINARIA
             if (contadorMascotas > 0)
             {
                 double promedio = suma / contadorMascotas;
-                label1.Text = $"Peso promedio: {promedio:F2} kg";
+                label1.Text = $"Peso promedio: {promedio:F2} lb";
             }
             else
             {
