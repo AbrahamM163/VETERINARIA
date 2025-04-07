@@ -59,5 +59,11 @@ namespace VETERINARIA
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form4 frmBuscar = new Form4(mascotas);
+            frmBuscar.Show();
+        }
     }
 }
