@@ -50,11 +50,6 @@ namespace VETERINARIA
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -64,6 +59,18 @@ namespace VETERINARIA
         {
             Form4 frmBuscar = new Form4(mascotas);
             frmBuscar.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form5 frmOrdenarPorEdad = new Form5(mascotas);
+            frmOrdenarPorEdad.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Form6 frmDiagnostico = new Form6(mascotas);
+            frmDiagnostico.Show();
         }
     }
 }
