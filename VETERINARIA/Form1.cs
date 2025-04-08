@@ -31,6 +31,23 @@ namespace VETERINARIA
                 return;
             }
 
+            // Validar que la edad sea un número entero válido
+            if (!int.TryParse(textBox1.Text, out int edad))
+            {
+                MessageBox.Show("Por favor, ingresa un valor numérico válido para la edad.");
+                textBox1.Focus();
+                return;
+            }
+
+            // Validar que el peso sea un número decimal válido
+            if (!double.TryParse(textBox4.Text, out double peso))
+            {
+                MessageBox.Show("Por favor, ingresa un valor numérico válido para el peso.");
+                textBox4.Focus();
+                return;
+            }
+
+
             // Crear mascota desde los TextBox
             Mascota nueva = new Mascota
             {
