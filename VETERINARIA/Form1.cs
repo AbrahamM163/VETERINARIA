@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,8 +77,39 @@ namespace VETERINARIA
             return contador;
         }
 
+        private void ExportarDatosAArchivoTxt()
+        {
+            // Definir la ruta donde se guardará el archivo .txt
+            string filePath = "mascotas_registradas.txt";
+            string currentDirectory = Directory.GetCurrentDirectory();
+            MessageBox.Show($"El archivo se guardará en: {currentDirectory}\\{filePath}");
 
+            // Usamos StreamWriter para escribir en el archivo
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                
+                writer.WriteLine("Nombre\tTipo\tEdad\tPeso");
 
+                // Recorrer el arreglo de mascotas y escribir sus datos en el archivo
+                for (int i = 0; i < contador; i++)
+                {
+                    // Asegurarse de que la mascota no sea null
+                    if (mascotas[i] != null)
+                    {
+                        // Escribir los datos de la mascota separados por tabuladores
+                        writer.WriteLine($"{mascotas[i].Nombre}\t{mascotas[i].Tipo}\t{mascotas[i].Edad}\t{mascotas[i].Peso}");
+                    }
+                }
+            }
+
+            // Notificar al usuario que los datos fueron exportados con éxito
+            MessageBox.Show("Los datos han sido exportados exitosamente en el archivo 'mascotas_registradas.txt'.");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ExportarDatosAArchivoTxt();
+        }
 
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -95,9 +127,6 @@ namespace VETERINARIA
 
         }
 
-  
-
-     
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -118,6 +147,7 @@ namespace VETERINARIA
         {
 
         }
+
     }
 }
 
